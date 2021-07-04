@@ -1,5 +1,10 @@
 <div>
-  <% @students.each do |student| %>
-    <div><%= student.first_name + " " + student.last_name %></div>
-  <% end %>
+        <% @students.each do |student| %>
+                <div><%=link_to student.to_s, student_path(student.id)%></div>
+                <%if student.active == false%>
+                        <div>This student is currently inactive.</div>
+                <%else%>
+                        <div>This student is currently active.</div>
+                <%end%>
+        <% end %>
 </div>
